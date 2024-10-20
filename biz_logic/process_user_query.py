@@ -1,13 +1,13 @@
 import pandas as pd
-import os
-from dotenv import load_dotenv
-from openai import OpenAI
+#import os
+#from dotenv import load_dotenv
+#from openai import OpenAI
 
 
 load_dotenv('.env')
 
 # Pass the API Key to the OpenAI Client
-client = OpenAI(api_key=os.getenv('OPENAI_API_KEY'))
+#client = OpenAI(api_key=os.getenv('OPENAI_API_KEY'))
 
 def get_full_response_code(response):
     temp_response = response    
