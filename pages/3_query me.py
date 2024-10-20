@@ -4,7 +4,8 @@ import pandas as pd
 from biz_logic.load_data import query_df, get_data
 from biz_logic.process_user_query import get_full_response_code
 from utility import check_password
-from helper_functions.llm import *
+from openai import OpenAI
+#from helper_functions.llm import *
 
 
 # Do not continue if check_password is not True.  
@@ -23,6 +24,22 @@ st.text("""
 # retrieve the dataframe
 df = get_data()
 st.write(df.head(10))
+
+# Set up OpenAI client
+client = OpenAI(api_key=st.secrets["openai"]["openai_api_key"])
+
+# Note that this function directly take in "messages" as the parameter.
+def get_completion_by_messages(messages, model="gpt-4o-mini", temperature=0, top_p=1.0, max_tokens=1024, n=1):    
+    response = client.chat.completions.create(
+        model=model,
+        messages=messages,
+        temperature=temperature,
+        top_p=top_p,
+        max_tokens=max_tokens,
+        n=1
+    )
+    return response.choices[0].message.content
+
 
 # give context to the prompt and prevent prompt injection
 system_message = f"""
