@@ -6,7 +6,9 @@ from openai import OpenAI
 load_dotenv('.env')
 
 # Pass the API Key to the OpenAI Client
-client = OpenAI(api_key=os.getenv('OPENAI_API_KEY'))
+#client = OpenAI(api_key=os.getenv('OPENAI_API_KEY'))
+client = OpenAI(api_key=st.secrets["OPENAI_API_KEY"])
+
 
 def get_embedding(input, model='text-embedding-3-small'):
     response = client.embeddings.create(
@@ -37,8 +39,7 @@ def get_completion(prompt, model="gpt-4o-mini", temperature=0, top_p=1.0, max_to
 
 
 # Note that this function directly take in "messages" as the parameter.
-def get_completion_by_messages(messages, model="gpt-4o-mini", temperature=0, top_p=1.0, max_tokens=1024, n=1):
-    client = OpenAI(api_key=os.getenv('OPENAI_API_KEY'))
+def get_completion_by_messages(messages, model="gpt-4o-mini", temperature=0, top_p=1.0, max_tokens=1024, n=1):    
     response = client.chat.completions.create(
         model=model,
         messages=messages,
