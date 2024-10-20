@@ -4,7 +4,7 @@ import pandas as pd
 #from openai import OpenAI
 
 
-load_dotenv('.env')
+#load_dotenv('.env')
 
 # Pass the API Key to the OpenAI Client
 #client = OpenAI(api_key=os.getenv('OPENAI_API_KEY'))
