@@ -26,7 +26,7 @@ df = get_data()
 st.write(df.head(10))
 
 # Set up OpenAI client
-client = OpenAI(api_key=st.secrets["openai"]["openai_api_key"])
+client = OpenAI(api_key=st.secrets["openai_api_key"])
 
 # Note that this function directly take in "messages" as the parameter.
 def get_completion_by_messages(messages, model="gpt-4o-mini", temperature=0, top_p=1.0, max_tokens=1024, n=1):    
