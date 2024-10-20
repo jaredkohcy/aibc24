@@ -16,8 +16,7 @@ def main():
 
     Furthermore, please be aware that the LLM may generate inaccurate or incorrect information. You assume full responsibility for how you use any generated output.
 
-    Always consult with qualified professionals for accurate and personalized advice.
-        """, height = 200)
+    Always consult with qualified professionals for accurate and personalized advice.""", height = 200)
 
 df = get_data()
 
