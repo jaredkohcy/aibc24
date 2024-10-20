@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 
 from biz_logic.load_data import query_df, get_data
-from biz_logic.process_user_query import get_full_response_code
+#from biz_logic.process_user_query import get_full_response_code
 from utility import check_password
 
 def generate_table(df, month_list, flat_type_list, flat_model_list, town_list, area_val_min, area_val_max):
